@@ -1,1 +1,416 @@
 
+/* ========================================
+   1. COLORES Y ESTILOS GENERALES
+======================================== */
+
+:root {
+    --azul-noche: #07152f;
+    --azul-magico: #12396b;
+    --azul-claro: #8dc8ff;
+    --plateado: #dce8ff;
+    --blanco: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Georgia, serif;
+    color: var(--blanco);
+    background: var(--azul-noche);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+/* Fondo nocturno con estrellas */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+
+    background:
+        radial-gradient(circle at 20% 20%, #315b91 0, transparent 25%),
+        radial-gradient(circle at 80% 70%, #193d70 0, transparent 30%),
+        var(--azul-noche);
+}
+
+
+/* ========================================
+   2. PORTADA
+======================================== */
+
+#inicio {
+    min-height: 100vh;
+    min-height: 100svh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    padding: 40px 20px;
+
+    position: relative;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            rgba(4, 15, 36, 0.35),
+            rgba(4, 15, 36, 0.85)
+        ),
+        url("../images/castle-night.svg") center / cover no-repeat;
+}
+
+#inicio::before {
+    content: "";
+    position: absolute;
+    inset: 14px;
+
+    border: 1px solid var(--plateado);
+    opacity: 0.65;
+
+    pointer-events: none;
+}
+
+#inicio p:first-child {
+    color: var(--azul-claro);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 12px;
+}
+
+#inicio h1 {
+    margin-top: 30px;
+
+    font-size: clamp(38px, 8vw, 75px);
+    font-weight: normal;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+
+    text-shadow: 0 0 25px #6bb7ff;
+}
+
+#inicio h2 {
+    font-size: clamp(55px, 11vw, 110px);
+    font-weight: normal;
+    font-style: italic;
+
+    color: var(--plateado);
+
+    text-shadow:
+        0 0 15px #7abaff,
+        0 0 40px #2865a8;
+}
+
+#inicio p:nth-of-type(2) {
+    margin: 20px 0 30px;
+    font-size: 17px;
+    color: var(--plateado);
+}
+
+
+/* ========================================
+   3. BOTONES Y ENLACES
+======================================== */
+
+a,
+button {
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+#inicio a,
+#ubicacion a,
+button {
+    display: inline-block;
+
+    border: 1px solid var(--plateado);
+    border-radius: 50px;
+
+    padding: 12px 25px;
+
+    color: var(--azul-noche);
+    background: linear-gradient(
+        120deg,
+        var(--azul-claro),
+        var(--plateado)
+    );
+
+    text-decoration: none;
+    font-family: inherit;
+    font-size: 15px;
+
+    cursor: pointer;
+}
+
+#inicio a:hover,
+#ubicacion a:hover,
+button:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 0 15px #7abaff,
+        0 0 30px #2865a8;
+}
+
+
+/* ========================================
+   4. SECCIONES GENERALES
+======================================== */
+
+section:not(#inicio) {
+    padding: 90px 20px;
+    text-align: center;
+}
+
+section:not(#inicio) h2 {
+    font-size: clamp(32px, 5vw, 50px);
+    font-weight: normal;
+
+    color: var(--plateado);
+    margin-bottom: 20px;
+
+    text-shadow: 0 0 15px #315b91;
+}
+
+section:not(#inicio) p {
+    margin-bottom: 15px;
+}
+
+
+/* ========================================
+   5. DETALLES DEL EVENTO
+======================================== */
+
+#detalles {
+    background: linear-gradient(
+        180deg,
+        transparent,
+        rgba(19, 57, 107, 0.35),
+        transparent
+    );
+}
+
+#detalles p {
+    margin: 12px auto;
+    max-width: 550px;
+}
+
+#detalles strong {
+    color: var(--azul-claro);
+}
+
+
+/* ========================================
+   6. CUENTA REGRESIVA
+======================================== */
+
+#contador {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+
+    margin-top: 35px;
+}
+
+#contador div {
+    width: 120px;
+    padding: 20px 10px;
+
+    border: 1px solid #8dc8ff;
+    border-radius: 45px 45px 12px 12px;
+
+    background: rgba(16, 48, 91, 0.6);
+
+    box-shadow: 0 0 20px rgba(94, 169, 255, 0.15);
+}
+
+#contador span {
+    display: block;
+
+    font-size: 38px;
+    color: var(--plateado);
+}
+
+#contador p {
+    font-size: 13px;
+    color: var(--azul-claro);
+}
+
+
+/* ========================================
+   7. GALERÍA
+======================================== */
+
+#galeria {
+    background: rgba(12, 34, 68, 0.45);
+}
+
+#fotos-previas,
+#fotos-evento {
+    max-width: 850px;
+    margin: 30px auto;
+    padding: 30px 20px;
+
+    border: 1px solid rgba(220, 232, 255, 0.4);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+#galeria h3 {
+    margin-bottom: 12px;
+    color: var(--azul-claro);
+    font-size: 24px;
+}
+
+
+/* ========================================
+   8. UBICACIÓN
+======================================== */
+
+#ubicacion a {
+    margin-top: 15px;
+}
+
+#ubicacion p {
+    color: var(--plateado);
+}
+
+
+/* ========================================
+   9. SUBIR FOTOGRAFÍAS
+======================================== */
+
+#subir {
+    background: linear-gradient(
+        180deg,
+        transparent,
+        rgba(20, 55, 100, 0.3),
+        transparent
+    );
+}
+
+#seleccionar-fotos {
+    display: block;
+    max-width: 100%;
+    margin: 25px auto;
+    color: var(--plateado);
+}
+
+#mensaje-subida {
+    margin-top: 20px;
+    color: var(--azul-claro);
+}
+
+
+/* ========================================
+   10. MÚSICA
+======================================== */
+
+#musica {
+    padding-top: 40px !important;
+}
+
+
+/* ========================================
+   11. DESPEDIDA
+======================================== */
+
+footer {
+    padding: 50px 20px;
+
+    text-align: center;
+
+    background: #030b19;
+    border-top: 1px solid rgba(220, 232, 255, 0.3);
+}
+
+footer h2 {
+    font-size: 30px;
+    font-weight: normal;
+    color: var(--plateado);
+}
+
+footer p {
+    margin-top: 15px;
+    font-style: italic;
+    color: var(--azul-claro);
+}
+
+
+/* ========================================
+   12. ANIMACIONES
+======================================== */
+
+#inicio h1,
+#inicio h2,
+#inicio p,
+#inicio a {
+    animation: aparecer 1.4s ease both;
+}
+
+#inicio h2 {
+    animation-delay: 0.2s;
+}
+
+#inicio a {
+    animation-delay: 0.5s;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ========================================
+   13. ADAPTACIÓN A CELULARES
+======================================== */
+
+@media (max-width: 600px) {
+    section:not(#inicio) {
+        padding: 65px 18px;
+    }
+
+    #contador {
+        gap: 8px;
+    }
+
+    #contador div {
+        width: 70px;
+        padding: 15px 5px;
+    }
+
+    #contador span {
+        font-size: 27px;
+    }
+
+    #contador p {
+        font-size: 11px;
+    }
+
+    #inicio p:first-child {
+        letter-spacing: 2px;
+    }
+}
+
