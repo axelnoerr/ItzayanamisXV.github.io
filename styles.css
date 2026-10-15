@@ -69,7 +69,7 @@ body::before {
             rgba(4, 15, 36, 0.35),
             rgba(4, 15, 36, 0.85)
         ),
-        url("assets/images/castle-night.svg") center / cover no-repeat;
+        url("assets/images/castillo.jpg") center / cover no-repeat;
 }
 
 #inicio::before {
