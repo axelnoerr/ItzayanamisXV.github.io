@@ -1,1 +1,152 @@
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mis XV Años | Invitación</title>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <!-- PORTADA DE LA INVITACIÓN -->
+    <header id="inicio">
+        <p>Una noche de magia y sueños</p>
+
+        <h1>Mis XV Años</h1>
+        <h2>Valentina</h2>
+
+        <p>Te invito a formar parte de un cuento inolvidable.</p>
+
+        <a href="#detalles">Abrir invitación</a>
+    </header>
+
+
+    <!-- DETALLES DEL EVENTO -->
+    <section id="detalles">
+        <h2>Una noche especial</h2>
+
+        <p>Me encantaría compartir este momento contigo.</p>
+
+        <p><strong>Fecha:</strong> 24 de enero de 2027</p>
+        <p><strong>Hora:</strong> 18:00 horas</p>
+        <p><strong>Lugar:</strong> Salón Real</p>
+    </section>
+
+
+    <!-- CUENTA REGRESIVA -->
+    <section id="cuenta">
+        <h2>La magia está por comenzar</h2>
+
+        <div id="contador">
+            <div>
+                <span id="dias">00</span>
+                <p>Días</p>
+            </div>
+
+            <div>
+                <span id="horas">00</span>
+                <p>Horas</p>
+            </div>
+
+            <div>
+                <span id="minutos">00</span>
+                <p>Minutos</p>
+            </div>
+
+            <div>
+                <span id="segundos">00</span>
+                <p>Segundos</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- GALERÍA DE FOTOGRAFÍAS -->
+    <section id="galeria">
+        <h2>Galería de recuerdos</h2>
+
+        <p>Los momentos más bonitos de este cuento.</p>
+
+        <div id="fotos-previas">
+            <h3>Fotos previas</h3>
+            <p>Próximamente encontrarás fotografías aquí.</p>
+        </div>
+
+        <div id="fotos-evento">
+            <h3>Fotos del evento</h3>
+            <p>Compartiremos los recuerdos de esta noche.</p>
+        </div>
+    </section>
+
+
+    <!-- UBICACIÓN -->
+    <section id="ubicacion">
+        <h2>¿Dónde será la magia?</h2>
+
+        <p>Salón Real</p>
+        <p>Av. de los Sueños 123, México.</p>
+
+        <a
+            href="https://www.google.com/maps"
+            target="_blank"
+            rel="noopener noreferrer">
+            Ver ubicación en Google Maps
+        </a>
+    </section>
+
+
+    <!-- SUBIR FOTOGRAFÍAS -->
+    <section id="subir">
+        <h2>Comparte tus fotografías</h2>
+
+        <p>Ayúdanos a guardar los mejores recuerdos.</p>
+
+        <input
+            type="file"
+            id="seleccionar-fotos"
+            accept="image/png, image/jpeg, image/webp"
+            multiple>
+
+        <button type="button" id="boton-subir">
+            Subir fotografías
+        </button>
+
+        <p id="mensaje-subida">
+            Próximamente podrás compartir tus fotos.
+        </p>
+    </section>
+
+
+    <!-- MÚSICA -->
+    <section id="musica">
+        <h2>Música de cuento de hadas</h2>
+
+        <audio id="musica-fondo" loop>
+            <source
+                src="assets/audio/cuento-instrumental.mp3"
+                type="audio/mpeg">
+        </audio>
+
+        <button type="button" id="boton-musica">
+            Reproducir música
+        </button>
+    </section>
+
+
+    <!-- DESPEDIDA -->
+    <footer>
+        <h2>Gracias por formar parte de mi historia</h2>
+        <p>Con cariño, Valentina ✨</p>
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="assets/js/app.js"></script>
+
+</body>
+</html>
+
