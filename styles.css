@@ -383,6 +383,7 @@ footer p {
 }
 
 
+
 /* ========================================
    13. ADAPTACIÓN A CELULARES
 ======================================== */
@@ -412,7 +413,8 @@ footer p {
     #inicio p:first-child {
         letter-spacing: 2px;
     }
-   
+}
+
 /* ========================================
    14. MAGIA: ESTRELLAS Y DESTELLOS
 ======================================== */
@@ -421,6 +423,7 @@ footer p {
     content: "✦     ·      ✧       ·      ✦";
     position: absolute;
     inset: 0;
+    z-index: 1;
 
     display: flex;
     align-items: flex-start;
@@ -449,6 +452,3 @@ footer p {
         filter: brightness(1.8);
     }
 }
-
-}
-
