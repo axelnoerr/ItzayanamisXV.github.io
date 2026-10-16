@@ -412,5 +412,43 @@ footer p {
     #inicio p:first-child {
         letter-spacing: 2px;
     }
+   
+/* ========================================
+   14. MAGIA: ESTRELLAS Y DESTELLOS
+======================================== */
+
+#inicio::after {
+    content: "✦     ·      ✧       ·      ✦";
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+
+    padding: 12vh 5% 0;
+
+    color: #ffffff;
+    font-size: 22px;
+    text-shadow:
+        0 0 8px #8dc8ff,
+        0 0 18px #dce8ff;
+
+    pointer-events: none;
+    animation: estrellas-brillantes 3s ease-in-out infinite alternate;
+}
+
+@keyframes estrellas-brillantes {
+    from {
+        opacity: 0.35;
+        filter: brightness(0.8);
+    }
+
+    to {
+        opacity: 1;
+        filter: brightness(1.8);
+    }
+}
+
 }
 
