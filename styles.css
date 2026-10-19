@@ -656,6 +656,86 @@ footer p {
     transform: scale(0.97);
 }
 
+/* ========================================
+   18. MARCOS PLATEADOS ELEGANTES
+======================================== */
+
+#detalles,
+#galeria,
+#ubicacion,
+#subir,
+#musica {
+    position: relative;
+    border-top: 1px solid rgba(220, 232, 255, 0.22);
+}
+
+#detalles::before,
+#galeria::before,
+#ubicacion::before,
+#subir::before,
+#musica::before {
+    content: "";
+    position: absolute;
+    top: 12px;
+    left: 20px;
+    right: 20px;
+    height: 1px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(220, 232, 255, 0.65),
+        transparent
+    );
+
+    pointer-events: none;
+}
+
+/* Detalles con un brillo discreto */
+#detalles strong {
+    text-shadow: 0 0 10px rgba(141, 200, 255, 0.4);
+}
+
+/* Paneles de fotografías con acabado de cristal */
+#fotos-previas,
+#fotos-evento {
+    border-radius: 14px;
+    border-color: rgba(220, 232, 255, 0.5);
+
+    box-shadow:
+        0 0 20px rgba(141, 200, 255, 0.06),
+        inset 0 0 20px rgba(220, 232, 255, 0.025);
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+#fotos-previas:hover,
+#fotos-evento:hover {
+    border-color: rgba(220, 232, 255, 0.85);
+
+    box-shadow:
+        0 0 22px rgba(141, 200, 255, 0.15),
+        inset 0 0 20px rgba(220, 232, 255, 0.04);
+
+    transform: translateY(-3px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #fotos-previas,
+    #fotos-evento {
+        transition: none;
+    }
+
+    #fotos-previas:hover,
+    #fotos-evento:hover {
+        transform: none;
+    }
+}
+
+
 
 
 
