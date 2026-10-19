@@ -452,3 +452,53 @@ footer p {
         filter: brightness(1.8);
     }
 }
+
+/* ========================================
+   15. CIELO MÁGICO DE PARTÍCULAS
+======================================== */
+
+#inicio {
+    isolation: isolate;
+}
+
+#cielo-magico {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+}
+
+#cielo-magico .estrella {
+    position: absolute;
+    display: block;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow:
+        0 0 5px #ffffff,
+        0 0 10px #8dc8ff,
+        0 0 18px #dce8ff;
+
+    animation: titilar var(--duracion) ease-in-out infinite alternate;
+    animation-delay: var(--retraso);
+}
+
+@keyframes titilar {
+    0% {
+        opacity: 0.15;
+        transform: scale(0.6);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #cielo-magico .estrella {
+        animation: none;
+        opacity: 0.7;
+    }
+}
+
