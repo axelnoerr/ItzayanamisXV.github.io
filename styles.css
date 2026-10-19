@@ -502,3 +502,84 @@ footer p {
     }
 }
 
+/* ========================================
+   CONTADOR REGRESIVO - XV DE ITZAYANA
+======================================== */
+
+#cuenta-regresiva {
+    padding: 60px 20px;
+    text-align: center;
+    color: #ffffff;
+    background: linear-gradient(
+        180deg,
+        #07152f,
+        #12396b,
+        #07152f
+    );
+    position: relative;
+    overflow: hidden;
+}
+
+#cuenta-regresiva .contador-intro {
+    color: #8dc8ff;
+    font-size: 1rem;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+}
+
+#cuenta-regresiva h2 {
+    color: #dce8ff;
+    font-family: Georgia, serif;
+    font-size: clamp(1.6rem, 4vw, 2.5rem);
+    margin-bottom: 35px;
+}
+
+.contador {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+.unidad-tiempo {
+    min-width: 100px;
+    padding: 22px 16px;
+    border: 1px solid #8dc8ff;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.07);
+    box-shadow: 0 0 18px rgba(141, 200, 255, 0.15);
+}
+
+.unidad-tiempo span {
+    display: block;
+    color: #ffffff;
+    font-family: Georgia, serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-shadow: 0 0 12px #8dc8ff;
+}
+
+.unidad-tiempo small {
+    display: block;
+    margin-top: 8px;
+    color: #dce8ff;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 480px) {
+    .contador {
+        gap: 10px;
+    }
+
+    .unidad-tiempo {
+        min-width: 75px;
+        padding: 16px 10px;
+    }
+
+    .unidad-tiempo span {
+        font-size: 1.8rem;
+    }
+}
+
+
