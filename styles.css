@@ -626,5 +626,36 @@ footer p {
     }
 }
 
+/* ========================================
+   17. BOTÓN MÁGICO DE LA PORTADA
+======================================== */
+
+#inicio a {
+    position: relative;
+    z-index: 3;
+    overflow: hidden;
+    box-shadow:
+        0 0 12px rgba(141, 200, 255, 0.25);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.4s ease,
+        filter 0.4s ease;
+}
+
+#inicio a:hover {
+    transform: translateY(-4px) scale(1.04);
+    filter: brightness(1.12);
+
+    box-shadow:
+        0 0 15px #ffffff,
+        0 0 30px #8dc8ff,
+        0 0 50px rgba(141, 200, 255, 0.55);
+}
+
+#inicio a:active {
+    transform: scale(0.97);
+}
+
+
 
 
