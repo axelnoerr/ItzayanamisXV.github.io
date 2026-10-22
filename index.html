@@ -86,8 +86,44 @@
             <p>Compartiremos los recuerdos de esta noche.</p>
         </div>
     </section>
+    
+<!-- LIBRO DE DEDICATORIAS -->
+<section id="dedicatorias">
+  <p class="dedicatorias-intro">Palabras que se guardan en el corazón</p>
+  <h2>Un recuerdo para la princesa</h2>
+  <p>
+    Déjale a Itzayana un mensaje bonito para recordar
+    siempre la magia de este día.
+  </p>
 
+  <form id="form-dedicatoria">
+    <label for="nombre-dedicatoria">Tu nombre</label>
+    <input
+      type="text"
+      id="nombre-dedicatoria"
+      maxlength="50"
+      placeholder="¿Quién le escribe?"
+      required
+    >
 
+    <label for="mensaje-dedicatoria">Tu dedicatoria</label>
+    <textarea
+      id="mensaje-dedicatoria"
+      maxlength="500"
+      rows="4"
+      placeholder="Escribe aquí tus buenos deseos..."
+      required
+    ></textarea>
+
+    <button type="submit">Enviar mi dedicatoria ✨</button>
+    <p id="estado-dedicatoria" aria-live="polite"></p>
+  </form>
+
+  <div id="lista-dedicatorias">
+    <h3>Palabras llenas de cariño</h3>
+    <p>Pronto aparecerán aquí las dedicatorias.</p>
+  </div>
+</section>
     <!-- UBICACIÓN -->
     <section id="ubicacion">
         <h2>¿Dónde será la magia?</h2>
