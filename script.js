@@ -77,5 +77,34 @@ document.addEventListener("DOMContentLoaded", () => {
     setInterval(actualizarContador, 1000);
 });
 
+/* ========================================
+   FIREBASE - LIBRO DE DEDICATORIAS
+======================================== */
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-app.js";
+import {
+    getFirestore,
+    collection,
+    addDoc,
+    getDocs,
+    query,
+    orderBy,
+    serverTimestamp
+} from "https://www.gstatic.com/firebasejs/13.0.0/firebase-firestore.js";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyCH9R8fZfevLD9bTgNdv1A9bw3n85UeeZM",
+    authDomain: "xv-itzayana-81670.firebaseapp.com",
+    projectId: "xv-itzayana-81670",
+    storageBucket: "xv-itzayana-81670.firebasestorage.app",
+    messagingSenderId: "77123548697",
+    appId: "1:77123548697:web:49c704c3c8ca743f8c9c88",
+    measurementId: "G-R8HH2DN8E8"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+
 
 
