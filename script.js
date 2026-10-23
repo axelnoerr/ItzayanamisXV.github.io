@@ -105,6 +105,110 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+/* ========================================
+   ENVÍO Y LECTURA DE DEDICATORIAS
+======================================== */
+
+import {
+    collection,
+    addDoc,
+    getDocs,
+    query,
+    orderBy,
+    serverTimestamp
+} from "https://www.gstatic.com/firebasejs/13.0.0/firebase-firestore.js";
+
+document.addEventListener("DOMContentLoaded", () => {
+    const formulario = document.getElementById("form-dedicatoria");
+    const campoNombre = document.getElementById("nombre-dedicatoria");
+    const campoMensaje = document.getElementById("mensaje-dedicatoria");
+    const estado = document.getElementById("estado-dedicatoria");
+    const lista = document.getElementById("lista-dedicatorias");
+
+    if (!formulario || !campoNombre || !campoMensaje || !estado || !lista) return;
+
+    const dedicatoriasRef = collection(db, "dedicatorias");
+
+    async function mostrarDedicatorias() {
+        try {
+            const consulta = query(dedicatoriasRef, orderBy("fecha", "desc"));
+            const resultados = await getDocs(consulta);
+
+            lista.replaceChildren();
+
+            const titulo = document.createElement("h3");
+            titulo.textContent = "Palabras llenas de cariño";
+            lista.appendChild(titulo);
+
+            resultados.forEach((documento) => {
+                const datos = documento.data();
+
+                const tarjeta = document.createElement("article");
+                tarjeta.className = "tarjeta-dedicatoria";
+
+                const nombre = document.createElement("h4");
+                nombre.textContent = datos.nombre;
+
+                const mensaje = document.createElement("p");
+                mensaje.textContent = datos.mensaje;
+
+                tarjeta.append(nombre, mensaje);
+                lista.appendChild(tarjeta);
+            });
+
+            if (resultados.empty) {
+                const texto = document.createElement("p");
+                texto.textContent = "Sé la primera persona en dejarle unas palabras bonitas a Itzayana.";
+                lista.appendChild(texto);
+            }
+        } catch (error) {
+            console.error("Error al cargar dedicatorias:", error);
+            estado.textContent = "No pudimos cargar las dedicatorias por ahora.";
+        }
+    }
+
+    formulario.addEventListener("submit", async (evento) => {
+        evento.preventDefault();
+
+        const nombre = campoNombre.value.trim();
+        const mensaje = campoMensaje.value.trim();
+
+        if (nombre.length < 2 || nombre.length > 50) {
+            estado.textContent = "Tu nombre debe tener entre 2 y 50 caracteres.";
+            return;
+        }
+
+        if (mensaje.length < 2 || mensaje.length > 500) {
+            estado.textContent = "Tu mensaje debe tener entre 2 y 500 caracteres.";
+            return;
+        }
+
+        const boton = formulario.querySelector('button[type="submit"]');
+        boton.disabled = true;
+        estado.textContent = "Guardando tu dedicatoria... 💙";
+
+        try {
+            await addDoc(dedicatoriasRef, {
+                nombre,
+                mensaje,
+                fecha: serverTimestamp()
+            });
+
+            formulario.reset();
+            estado.textContent = "¡Tu dedicatoria quedó guardada! ✨";
+            await mostrarDedicatorias();
+        } catch (error) {
+            console.error("Error al guardar dedicatoria:", error);
+            estado.textContent = "No se pudo guardar. Inténtalo de nuevo en un momento.";
+        } finally {
+            boton.disabled = false;
+        }
+    });
+
+    mostrarDedicatorias();
+});
+
+
 
 
 
